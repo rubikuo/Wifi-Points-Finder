@@ -9,9 +9,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { TodoComponent } from './todo/todo.component';
 import { NavComponent } from './nav/nav.component';
-import { FormsModule } from '@angular/forms'; // remember to import this when you use form so ngModel will be effective
+import { FormsModule } from '@angular/forms';
+// tslint:disable-next-line: max-line-length
+import { WifipointComponent } from './wifipoint/wifipoint.component';
+import { ContactComponent } from './contact/contact.component'; // remember to import this when you use form so ngModel will be effective
 
 @NgModule({
   declarations: [
@@ -19,8 +21,9 @@ import { FormsModule } from '@angular/forms'; // remember to import this when yo
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    TodoComponent,
-    NavComponent
+    NavComponent,
+    WifipointComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

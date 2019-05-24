@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.fAuth.auth.signInWithEmailAndPassword(this.email, this.password)
     .then(value => {
-    this.router.navigate(['/todo']);
+    this.router.navigate(['/wifipoint']);
     })
     .catch(err => {
       this.invalidForm = true;
