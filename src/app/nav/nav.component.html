@@ -3,6 +3,7 @@
 <h5 class="my-0 mr-md-auto font-weight-normal navbar-brand">Wifi Points Finder</h5>
 <nav class="my-2 my-md-0 mr-md-3">
   <a routerLink="/" class="p-2 text-dark">Home</a>
+  <a routerLink="/contact" class="p-2 text-dark">Contact</a>
   <small>
     <span *ngIf="user | async">Welcome {{ (user | async)?.email }}</span>
     <!--if user exits, it will show the welcome ... otherwise it will not show-->

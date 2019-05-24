@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyDTGLQGofldsgYyCQH4ZTGHNbIU3rdYVts',
-    authDomain: 'authwithdb-c5ee4.firebaseapp.com',
-    databaseURL: 'https://authwithdb-c5ee4.firebaseio.com',
-    projectId: 'authwithdb-c5ee4',
-    storageBucket: 'authwithdb-c5ee4.appspot.com',
-    messagingSenderId: '828133416381'
+    apiKey: 'AIzaSyCr5C8yksdtlspsRrr9cYraycl-aMqDZo8',
+    authDomain: 'wifipointfinder.firebaseapp.com',
+    databaseURL: 'https://wifipointfinder.firebaseio.com',
+    projectId: 'wifipointfinder',
+    storageBucket: 'wifipointfinder.appspot.com',
+    messagingSenderId: '1030003966522',
+    appId: '1:1030003966522:web:0102634acfbebc40'
   }
 
 };
