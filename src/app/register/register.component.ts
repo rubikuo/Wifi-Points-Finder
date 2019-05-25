@@ -11,6 +11,7 @@ export class RegisterComponent implements OnInit {
   // create variables:
   email: string;
   password: string;
+  username: string;
   invalidForm: boolean;
 
   constructor(public fAuth: AngularFireAuth, public router: Router) { }
@@ -23,7 +24,7 @@ export class RegisterComponent implements OnInit {
   .then(value => {
     // if this sucessful
     console.log (value);
-    this.router.navigate(['/todo']);
+    this.router.navigate(['/wifipoint']);
   })
   .catch( err => {
     this.invalidForm = true; // invalidForm is hard code we write in register.component.html "line 13"

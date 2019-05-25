@@ -1,12 +1,17 @@
 <form (ngSubmit)="register()">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" name="name" class="form-control" id="username" [(ngModel)]="username" placeholder="Username" required>
+        <!--if you use ngModel you have to import "FormsModule"  in the app.module.ts-->
+      </div>
 <div class="form-group">
   <label for="email">Email</label>
   <input type="email" name="name" class="form-control" id="email" [(ngModel)]="email" placeholder="E-mail" required>
   <!--if you use ngModel you have to import "FormsModule"  in the app.module.ts-->
 </div>
 <div class="form-group">
-  <label for="password">Password</label>
-  <input type="password" name="password" class="form-control" id="password" [(ngModel)]="password">
+  <label for="password">Password <small>(At least 6 characters)</small></label>
+  <input type="password" name="password" class="form-control" id="password" [(ngModel)]="password" placeholder="Password" required>
 </div>
 <button type="submit" class="btn btn-primary" [disabled]="!email || !password || password.length < 6">Register</button>
 <!-- when there is no email, no password or the password is less than 6 character. then the button will be disabled-->

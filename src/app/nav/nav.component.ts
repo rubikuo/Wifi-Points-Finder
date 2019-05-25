@@ -18,6 +18,8 @@ export class NavComponent implements OnInit {
     console.log(this.user);
   }
 
+  username: string;
+
   ngOnInit() {
   }
   // we create a signOut method
