@@ -1,3 +1,9 @@
-/* You can add global styles to this file, and also import other style files
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  font-family: 'Mandali', sans-serif;
+}
+
+/* -- to fix the underline in the nav bar --*/
 .navtext:hover, .navtext:focus { text-decoration: none;
-} */
+}

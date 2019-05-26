@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./wifipoint.component.css']
 })
 export class WifipointComponent implements OnInit {
-   searchterm = '';
+   searchterm = ''; // to catch the input value
    apiData: any [];
 
   constructor(private apidata: DataService) { }
@@ -17,7 +17,7 @@ export class WifipointComponent implements OnInit {
   }
 
   getDataFromService() {
-    this.apidata.getWifiApiData(this.searchterm)
+    this.apidata.getWifiApiData(this.searchterm) // to pass the input value as parameter here
     .subscribe((data: any) => {
       console.log(data);
       if (data.records.length === 0) {
@@ -27,5 +27,7 @@ export class WifipointComponent implements OnInit {
       }
     });
   }
+
+
 
 }
