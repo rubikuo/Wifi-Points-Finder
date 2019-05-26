@@ -1,22 +1,25 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
 
-<h5 class="my-0 mr-md-auto font-weight-normal navbar-brand">Wifi Hotspot Finder</h5>
-<nav class="my-2 my-md-0 mr-md-3">
-  <a routerLink="/" class="p-2 text-info">Home</a>
-  <a routerLink="/contact" class="p-2 text-info">Contact</a>
-  <a routerLink="/wifipoint" *ngIf="user | async"class="p-2 text-info">Wifi Hotspot</a>
-  <small>
-    <span *ngIf="user | async">Welcome {{ (user | async)?.email }}</span>
-    <!--if user exits, it will show the welcome ... otherwise it will not show-->
-    <!--it will not refresh the page while loop through the user-->
-  </small>
-</nav>
+  <h5 class="my-0 mr-md-auto font-weight-normal navbar-brand"><i class="fas fa-wifi"></i> Wifi Hotspot Finder</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a routerLink="/" class="p-2 text-info navtext"><i class="fas fa-home"></i> Home</a>
+    <a routerLink="/wifipoint" *ngIf="user | async" class="p-2 text-info navtext"><i class="fas fa-search-location"></i>
+      Wifi Hotspot</a>
+    <a routerLink="/contact" class="p-2 text-info navtext"><i class="fas fa-paper-plane"></i> Contact Us</a>
+    <small>
+      <span *ngIf="user | async"><i class="fas fa-user"></i> Welcome {{ (user | async)?.email }}</span>
+      <!--if user exits, it will show the welcome ... otherwise it will not show-->
+      <!--it will not refresh the page while loop through the user-->
+    </small>
+  </nav>
 
 
-<div *ngIf="user | async"> <!--if the user exists -->
-  <button class="btn btn-outline-secondary" (click)="signOut()">Sign Out</button> <!--we make the click method is written in nav.component.ts-->
+  <div *ngIf="user | async">
+    <!--if the user exists -->
+    <button class="btn btn-outline-secondary" (click)="signOut()">Sign Out</button>
+    <!--we make the click method is written in nav.component.ts-->
 
-</div>
+  </div>
 
 
 </div>
