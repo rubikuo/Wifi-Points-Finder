@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 // tslint:disable-next-line: max-line-length
 import { WifipointComponent } from './wifipoint/wifipoint.component';
 import { ContactComponent } from './contact/contact.component'; // remember to import this when you use form so ngModel will be effective
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ContactComponent } from './contact/contact.component'; // remember to i
     AngularFireModule.initializeApp(environment.firebase), // to access the apikey in the environment
     AngularFireAuthModule, // to work with  log in / sign out
     AngularFireDatabaseModule, // to work with database itself
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
