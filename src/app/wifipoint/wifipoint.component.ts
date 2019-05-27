@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { NgForm } from '@angular/forms';
+import * as mapboxgl from 'mapbox-gl';
+import { environment } from "../../environments/environment";
 
 @Component({
   selector: 'app-wifipoint',
@@ -10,10 +12,13 @@ import { NgForm } from '@angular/forms';
 export class WifipointComponent implements OnInit {
    searchterm = ''; // to catch the input value
    apiData: any [];
-
+   map: any;
   constructor(private apidata: DataService) { }
 
   ngOnInit() {
+   
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaGlyc2NoYmF1bSIsImEiOiJjanRlNng2b3EwazMyNDVxaThnb2MxOGtoIn0.2ZK2MPVV9Zoq_-EBVrafLg'
+    this.getLocation();
   }
 
   getDataFromService() {
@@ -27,7 +32,24 @@ export class WifipointComponent implements OnInit {
       }
     });
   }
+    getWifisToTheMap() {
 
+    }
 
+    getLocation() {
+      navigator.geolocation.getCurrentPosition(pos => {
+        // function
+        this.showMap(pos.coords.latitude, pos.coords.longitude);
+      });
+    }
+
+    showMap(latitude, longitude) {
+      this.map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [longitude, latitude],
+        zoom: 13
+        });
+    }
 
 }

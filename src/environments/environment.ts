@@ -12,6 +12,10 @@ export const environment = {
     storageBucket: 'wifipointfinder.appspot.com',
     messagingSenderId: '1030003966522',
     appId: '1:1030003966522:web:0102634acfbebc40'
+  },
+
+  mapbox: {
+    accessToken: 'pk.eyJ1IjoiaGlyc2NoYmF1bSIsImEiOiJjanRlNng2b3EwazMyNDVxaThnb2MxOGtoIn0.2ZK2MPVV9Zoq_-EBVrafLg'
   }
 
 };
