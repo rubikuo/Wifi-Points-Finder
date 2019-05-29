@@ -16,11 +16,25 @@ export class WifipointComponent implements OnInit {
   constructor(private apidata: DataService) { }
 
   ngOnInit() {
-
+    this.getAllWifidata(); // to show all the wifi hotspot in the map
     mapboxgl.accessToken = 'pk.eyJ1IjoiaGlyc2NoYmF1bSIsImEiOiJjanRlNng2b3EwazMyNDVxaThnb2MxOGtoIn0.2ZK2MPVV9Zoq_-EBVrafLg'
     this.getLocation();
+
   }
 
+ // to catch all the wifi hotspot coordinates and show on the map
+ getAllWifidata() {
+  this.apidata.getAllWifiApiData()
+  .subscribe((wifidata: any) => {
+    console.log(wifidata);
+    this.apiData = wifidata.records;
+    console.log(wifidata.records[0].geometry.coordinates);
+    this.showMap(wifidata.records[0].geometry.coordinates[1], wifidata.records[0].geometry.coordinates[0]);
+  });
+
+ }
+
+ // to search with street name and return wifi hotspots in the map
   getDataFromService() {
     this.apidata.getWifiApiData(this.searchterm) // to pass the input value as parameter here
     .subscribe((data: any) => {

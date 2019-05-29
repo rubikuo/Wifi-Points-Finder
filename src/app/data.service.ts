@@ -13,4 +13,8 @@ getWifiApiData(term: any) {
   return this.http.get(`https://helsingborg.opendatasoft.com/api/records/1.0/search/?dataset=wifi-punkter&rows=200&q=${term}`);
 }
 
+getAllWifiApiData() {
+  return this.http.get(`https://helsingborg.opendatasoft.com/api/records/1.0/search/?dataset=wifi-punkter&rows=203`);
+}
+
 }
