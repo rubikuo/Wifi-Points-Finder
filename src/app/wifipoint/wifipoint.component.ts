@@ -32,15 +32,16 @@ export class WifipointComponent implements OnInit {
       this.apiData = data.records;
       console.log(data.records[0].geometry.coordinates);
       this.showMap(data.records[0].geometry.coordinates[1], data.records[0].geometry.coordinates[0]);
-      this.apiData.forEach(function(marker){
-        var el = document.createElement('div');
+      this.apiData.forEach((marker) => {
+        var el = document.createElement('i'); //create element for the fontawesome icon in html
         el.className = 'marker';
-        el.style.backgroundImage = 'url(https://image.flaticon.com/icons/svg/149/149060.svg)';
+        el.className = 'fas fa-map-marker-alt ada'; //  class name for the fontawesome icon
+        el.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
         
         // add marker to map
         new mapboxgl.Marker(el)
-        .setLngLat(marker.geometry.coordinates)
-        .addTo('map');
+        .setLngLat([data.records[0].geometry.coordinates[0], data.records[0].geometry.coordinates[1]])
+        .addTo(this.map);
       });
       
     }
