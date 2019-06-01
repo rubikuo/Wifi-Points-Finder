@@ -1,13 +1,11 @@
-
 <div class="jumbotron bg-transparent">
-    <h1>Welcome to Wifi Hotspot Finder!</h1>
-    <p class="lead">This website is mainly to help you to find where are the Wifi hotspots near you in Helsingborg!</p>
-    <hr class="my-4">
-    <p>If you are here first time, please kindly sign up to access the service.</p>
-    <div *ngIf="!(user | async)"> <!-- if users do not exit show the following -->
-      <a routerLink="/login" class="btn btn-info font-weight-bold mr-2">Log In</a>
-      <a routerLink="/register" class="btn btn-info font-weight-bold">Sign Up</a>
-      </div>
+  <h1>Welcome to Wifi Hotspot Finder!</h1>
+  <p class="lead">This website is mainly to help you to find where are the Wifi hotspots near you in Helsingborg!</p>
+  <hr class="my-4">
+  <p>If you are here first time, please kindly sign up to access the service.</p>
+  <div *ngIf="!(user | async)">
+    <!-- if users do not exit show the following -->
+    <a routerLink="/login" class="btn btn-info font-weight-bold mr-2">Log In</a>
+    <a routerLink="/register" class="btn btn-info font-weight-bold">Sign Up</a>
   </div>
-
-
+</div>

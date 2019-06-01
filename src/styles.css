@@ -8,3 +8,15 @@
 .navtext:hover, .navtext:focus { text-decoration: none;
 }
 
+body {
+  background:linear-gradient(0deg,rgba(219, 220, 223, 0.783),rgba(209, 210, 213, 0.76)),
+  url("https://images.hdsydsvenskan.se/980x588/xR3eQqTaZs2NJ0IkKnSB9tjp7kc.jpg");
+
+      background-position: center center;
+      background-repeat:  no-repeat;
+      background-attachment: fixed;
+      background-size:  cover;
+      background-color: rgb(245, 241, 241);
+
+
+}
