@@ -15,6 +15,7 @@ export class WifipointComponent implements OnInit {
   map: any;
   marker: any;
   point: any;
+  address: any;
   constructor(private apidata: DataService) { }
 
   ngOnInit() {
@@ -29,8 +30,34 @@ export class WifipointComponent implements OnInit {
       .subscribe((wifidata: any) => {
         console.log(wifidata);
         this.apiData = wifidata.records;
-        console.log(wifidata.records[0].geometry.coordinates);
+        // console.log(wifidata.records[0].geometry.coordinates);
         this.showMap(wifidata.records[0].geometry.coordinates[1], wifidata.records[0].geometry.coordinates[0]);
+        this.apiData.forEach((marker) => {
+          console.log(marker.fields.adress);
+          this.address = marker.fields.adress;
+          const location = [marker.geometry.coordinates, marker.geometry.coordinates];
+          console.log(location);
+          location.forEach(point => {
+            this.point = point;
+            console.log(this.point);
+          });
+          const el = document.createElement('i'); // create element for the fontawesome icon in html
+          el.className = 'marker';
+          el.className = 'fas fa-map-marker-alt ada'; //  class name for the fontawesome icon
+          el.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
+          // console.log(marker.fields.adress); // to get wifi hotspot address
+
+          const popup = new mapboxgl.Popup({ offset: 25 })
+            .setText(this.address);
+          // still need to be fixed because it doesnt show address (which may need to be looped through)
+
+
+          // add marker to map
+          new mapboxgl.Marker(el)
+            .setLngLat(this.point)
+            .setPopup(popup) // to show the address info when mouse clicks on the marker
+            .addTo(this.map);
+        });
       });
 
   }
@@ -45,12 +72,13 @@ export class WifipointComponent implements OnInit {
         } else {
           this.apiData = data.records;
 
-          console.log(data.records[0].geometry.coordinates);
+          // console.log(data.records[0].geometry.coordinates);
           this.showMap(data.records[0].geometry.coordinates[1], data.records[0].geometry.coordinates[0]);
 
           // to loop through the coordinates in wifiapidata?
           this.apiData.forEach((marker) => {
-            // console.log(marker.geometry.coordinates);
+            console.log(marker.fields.adress);
+            this.address = marker.fields.adress;
             const location = [marker.geometry.coordinates, marker.geometry.coordinates];
             console.log(location);
             location.forEach(point => {
@@ -64,7 +92,7 @@ export class WifipointComponent implements OnInit {
             // console.log(marker.fields.adress); // to get wifi hotspot address
 
             const popup = new mapboxgl.Popup({ offset: 25 })
-              .setText('marker.fields.adress');
+              .setText(this.address);
             // still need to be fixed because it doesnt show address (which may need to be looped through)
 
 
