@@ -15,6 +15,9 @@ export class WifipointComponent implements OnInit {
   map: any;
   marker: any;
   point: any;
+  records: any;
+  myPos: any;
+  element: any;
   constructor(private apidata: DataService) { }
 
   ngOnInit() {
@@ -64,7 +67,7 @@ export class WifipointComponent implements OnInit {
             // console.log(marker.fields.adress); // to get wifi hotspot address
 
             const popup = new mapboxgl.Popup({ offset: 25 })
-              .setText('marker.fields.adress');
+              .setText();
             // still need to be fixed because it doesnt show address (which may need to be looped through)
 
 
@@ -81,18 +84,17 @@ export class WifipointComponent implements OnInit {
 
   // still need to be fixed ( want to show user's current places with marker and all the wifi hotspot markers when user lands the page)
   getLocation() {
-    navigator.geolocation.getCurrentPosition(pos => {
+    navigator.geolocation.getCurrentPosition((pos) => {
       // function
       this.showMap(pos.coords.latitude, pos.coords.longitude);
-      const el = document.createElement('i'); // create element for the fontawesome icon in html
-      el.className = 'marker';
-      el.className = 'fas fa-map-marker-alt ada'; //  class name for the fontawesome icon
-      el.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
-      new mapboxgl.Marker(el)
-        .setLngLat([pos.coords.latitude, pos.coords.longitude])
+      const element = document.createElement('i'); // create element for the fontawesome icon in html
+      element.className = 'myPos';
+      element.className = 'fas fa-map-marker-alt my-pos'; //  class name for the fontawesome icon
+      element.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
+      new mapboxgl.Marker(this.element)
+        .setLngLat(pos.coords.latitude, pos.coords.longitude)
         .addTo(this.map);
     });
-
   }
 
   showMap(latitude: number, longitude: number) {

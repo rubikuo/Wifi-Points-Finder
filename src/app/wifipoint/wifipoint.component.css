@@ -3,10 +3,19 @@
     width: 60vw;
 }
 
-.marker {
+/*.marker {
     display: block;
     border: none;
     border-radius: 70%;
     cursor: pointer;
     padding: 10;
-    }
+    }*/
+
+.my-pos {
+    display: block;
+    border: none;
+    border-radius: 70%;
+    cursor: pointer;
+    padding: 10;
+    color: rgb(238, 25, 25);
+}
