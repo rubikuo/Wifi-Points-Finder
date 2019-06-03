@@ -1,12 +1,11 @@
 #map {
-    height: 60vh;
-    width: 60vw;
+  height: 60vh;
+  width: 60vw;
 }
 
 .marker {
-    display: block;
-    border: none;
-    border-radius: 70%;
-    cursor: pointer;
-    padding: 10;
-    }
+  display: block;
+  border-radius: 70%;
+  cursor: pointer;
+  padding: 10;
+}

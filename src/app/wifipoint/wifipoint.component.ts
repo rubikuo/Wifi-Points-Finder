@@ -19,8 +19,8 @@ export class WifipointComponent implements OnInit {
   constructor(private apidata: DataService) { }
 
   ngOnInit() {
-    this.getAllWifidata(); // to show all the wifi hotspot in the map
     mapboxgl.accessToken = 'pk.eyJ1IjoiaGlyc2NoYmF1bSIsImEiOiJjanRlNng2b3EwazMyNDVxaThnb2MxOGtoIn0.2ZK2MPVV9Zoq_-EBVrafLg';
+    this.getAllWifidata(); // to show all the wifi hotspot in the map
     this.getLocation();
   }
 
@@ -28,23 +28,28 @@ export class WifipointComponent implements OnInit {
   getAllWifidata() {
     this.apidata.getAllWifiApiData()
       .subscribe((wifidata: any) => {
-        console.log(wifidata);
+        // console.log(wifidata);
         this.apiData = wifidata.records;
         // console.log(wifidata.records[0].geometry.coordinates);
         this.showMap(wifidata.records[0].geometry.coordinates[1], wifidata.records[0].geometry.coordinates[0]);
         this.apiData.forEach((marker) => {
-          console.log(marker.fields.adress);
+          // console.log(marker.fields.adress);
           this.address = marker.fields.adress;
           const location = [marker.geometry.coordinates, marker.geometry.coordinates];
-          console.log(location);
+          // console.log(location);
           location.forEach(point => {
             this.point = point;
-            console.log(this.point);
+            // console.log(this.point);
           });
           const el = document.createElement('i'); // create element for the fontawesome icon in html
           el.className = 'marker';
-          el.className = 'fas fa-map-marker-alt ada'; //  class name for the fontawesome icon
-          el.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
+          el.className = 'fas fa-map-marker-alt fa-2x'; //  class name for the fontawesome icon
+          // el.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
+          el.style.color = '#0725d3e0';
+
+          // el.style.borderColor = '#ffff';
+
+
           // console.log(marker.fields.adress); // to get wifi hotspot address
 
           const popup = new mapboxgl.Popup({ offset: 25 })
@@ -66,7 +71,7 @@ export class WifipointComponent implements OnInit {
   searchWifiHotSpot() {
     this.apidata.searchWifiApiData(this.searchterm) // to pass the input value as parameter here
       .subscribe((data: any) => {
-        console.log(data);
+        // console.log(data);
         if (data.records.length === 0) {
           alert('Nothing found');
         } else {
@@ -77,18 +82,21 @@ export class WifipointComponent implements OnInit {
 
           // to loop through the coordinates in wifiapidata?
           this.apiData.forEach((marker) => {
-            console.log(marker.fields.adress);
+            // console.log(marker.fields.adress);
             this.address = marker.fields.adress;
             const location = [marker.geometry.coordinates, marker.geometry.coordinates];
-            console.log(location);
+            // console.log(location);
             location.forEach(point => {
               this.point = point;
-              console.log(this.point);
+              // console.log(this.point);
             });
             const el = document.createElement('i'); // create element for the fontawesome icon in html
             el.className = 'marker';
-            el.className = 'fas fa-map-marker-alt ada'; //  class name for the fontawesome icon
-            el.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
+            el.className = 'fas fa-map-marker-alt fa-2x'; //  class name for the fontawesome icon
+            // el.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
+            el.style.color = '#4d1adae0';
+
+
             // console.log(marker.fields.adress); // to get wifi hotspot address
 
             const popup = new mapboxgl.Popup({ offset: 25 })
@@ -116,6 +124,7 @@ export class WifipointComponent implements OnInit {
       el.className = 'marker';
       el.className = 'fas fa-map-marker-alt ada'; //  class name for the fontawesome icon
       el.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
+
       new mapboxgl.Marker(el)
         .setLngLat([pos.coords.latitude, pos.coords.longitude])
         .addTo(this.map);
@@ -131,22 +140,5 @@ export class WifipointComponent implements OnInit {
       zoom: 15
     });
   }
-
-  /*geojson.features.forEach(marker) {
-    // create a DOM element for the marker
-    var el = document.createElement('div');
-    el.className = 'marker';
-    el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
-    el.style.width = marker.properties.iconSize[0] + 'px';
-    el.style.height = marker.properties.iconSize[1] + 'px';
-
-    el.addEventListener('click', function() {
-    window.alert(marker.properties.message);
-    });
-
-    // add marker to map
-    new mapboxgl.Marker(el)
-    .setLngLat(marker.geometry.coordinates)
-    .addTo('map');*/
 
 }
