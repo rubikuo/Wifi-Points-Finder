@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./wifipoint.component.css']
 })
 export class WifipointComponent implements OnInit {
-  searchterm = ''; // to catch the input value
+  searchterm: ''; // to catch the input value
   apiData: any[];
   map: any;
   marker: any;
