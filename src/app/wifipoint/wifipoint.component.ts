@@ -14,6 +14,7 @@ export class WifipointComponent implements OnInit {
   apiData: any[];
   map: any;
   marker: any;
+  point: any;
   constructor(private apidata: DataService) { }
 
   ngOnInit() {
@@ -43,25 +44,33 @@ export class WifipointComponent implements OnInit {
           alert('Nothing found');
         } else {
           this.apiData = data.records;
+
           console.log(data.records[0].geometry.coordinates);
           this.showMap(data.records[0].geometry.coordinates[1], data.records[0].geometry.coordinates[0]);
 
           // to loop through the coordinates in wifiapidata?
           this.apiData.forEach((marker) => {
+            // console.log(marker.geometry.coordinates);
+            const location = [marker.geometry.coordinates, marker.geometry.coordinates];
+            console.log(location);
+            location.forEach(point => {
+              this.point = point;
+              console.log(this.point);
+            });
             const el = document.createElement('i'); // create element for the fontawesome icon in html
             el.className = 'marker';
             el.className = 'fas fa-map-marker-alt ada'; //  class name for the fontawesome icon
             el.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
-            console.log(marker.fields.adress); // to get wifi hotspot address
+            // console.log(marker.fields.adress); // to get wifi hotspot address
 
             const popup = new mapboxgl.Popup({ offset: 25 })
               .setText('marker.fields.adress');
-              // still need to be fixed because it doesnt show address (which may need to be looped through)
+            // still need to be fixed because it doesnt show address (which may need to be looped through)
 
 
             // add marker to map
             new mapboxgl.Marker(el)
-              .setLngLat([data.records[0].geometry.coordinates[0], data.records[0].geometry.coordinates[1]])
+              .setLngLat(this.point)
               .setPopup(popup) // to show the address info when mouse clicks on the marker
               .addTo(this.map);
           });
