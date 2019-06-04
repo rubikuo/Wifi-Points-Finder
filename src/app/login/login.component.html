@@ -1,24 +1,21 @@
-<div class="container">
-  <form (ngSubmit)="login()">
-    <div class="form-group row">
-      <label for="email" class="col-sm-3 col-form-label">Email</label>
-      <div class="col-sm-6">
-        <input type="email" name="name" class="form-control" id="email" [(ngModel)]="email" placeholder="E-mail"
-          required>
-        <!--if you use ngModel you have to import "FormsModule"  in the app.module.ts-->
-      </div>
+<form (ngSubmit)="login()">
+  <div style="width: 70%; margin: auto; display: block;">
+    <div class="form-group mx-auto d-block" style="max-width: 30rem;">
+      <label for="email">Email</label>
+      <input type="email" name="name" class="form-control" id="email" [(ngModel)]="email" placeholder="E-mail" required>
+      <!--if you use ngModel you have to import "FormsModule"  in the app.module.ts-->
     </div>
-    <div class="form-group row">
-      <label for="password" class="col-sm-3 col-form-label">Password <small>(At least 6 characters)</small></label>
-      <div class="col-sm-6">
-        <input type="password" name="password" class="form-control" id="password" [(ngModel)]="password"
-          placeholder="Password" required>
-      </div>
+    <div class="form-group mx-auto d-block" style="max-width: 30rem;">
+      <label for="password">Password <small>(At least 6 characters)</small></label>
+      <input type="password" name="password" class="form-control" style="max-width: 30rem;" id="password"
+        [(ngModel)]="password" placeholder="Password" required>
     </div>
-    <button type="submit" class="btn btn-info" [disabled]="!email || !password || password.length < 6">Log
-      In</button>
-    <!-- when there is no email, no password or the password is less than 6 character. then the button will be disabled-->
-    <p class="center" *ngIf="invalidForm">this E-mail is not correct or password.</p>
-    <!--this p tag will only show if invalidForm ( an err occurs in register () which is written in register.component.ts) -->
-  </form>
-</div>
+    <div style="width: 62%; margin: auto; display: block;">
+      <button type="submit" class="btn btn-primary" [disabled]="!email || !password || password.length < 6">Log
+        In</button>
+      <!-- when there is no email, no password or the password is less than 6 character. then the button will be disabled-->
+      <p class="center" *ngIf="invalidForm">this E-mail is not correct or password.</p>
+      <!--this p tag will only show if invalidForm ( an err occurs in register () which is written in register.component.ts) -->
+    </div>
+  </div>
+</form>

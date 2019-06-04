@@ -19,9 +19,42 @@ export class WifipointComponent implements OnInit {
   constructor(private apidata: DataService) { }
 
   ngOnInit() {
+    // this.getLocation();
     mapboxgl.accessToken = 'pk.eyJ1IjoiaGlyc2NoYmF1bSIsImEiOiJjanRlNng2b3EwazMyNDVxaThnb2MxOGtoIn0.2ZK2MPVV9Zoq_-EBVrafLg';
-    this.getAllWifidata(); // to show all the wifi hotspot in the map
-    this.getLocation();
+    navigator.geolocation.getCurrentPosition(pos => {
+      this.map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [pos.coords.longitude, pos.coords.latitude],
+        zoom: 15
+      });
+      const userElement = document.createElement('i');
+      userElement.className = 'marker user-location fas fa-walking fa-2x';
+      // userElement.style.zIndex = '1';
+      new mapboxgl.Marker(userElement)
+        .setLngLat([pos.coords.longitude, pos.coords.latitude])
+        .addTo(this.map);
+
+      this.getAllWifidata(); // to show all the wifi hotspot in the map
+
+    });
+
+  }
+
+  getLocation() {
+    navigator.geolocation.getCurrentPosition(pos => {
+      // function
+      this.showMap(pos.coords.latitude, pos.coords.longitude);
+      console.log(pos.coords.latitude, pos.coords.longitude);
+      const userElement = document.createElement('i');
+      userElement.className = 'marker user-location fas fa-walking fa-2x';
+      // userElement.style.zIndex = '1';
+      new mapboxgl.Marker(userElement)
+        .setLngLat([pos.coords.longitude, pos.coords.latitude])
+        .addTo(this.map);
+
+    });
+
   }
 
   // to fetch all wifi hotspot in api data
@@ -47,16 +80,10 @@ export class WifipointComponent implements OnInit {
           // el.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
           el.style.color = '#0725d3e0';
 
-          // el.style.borderColor = '#ffff';
-
-
           // console.log(marker.fields.adress); // to get wifi hotspot address
-
           const popup = new mapboxgl.Popup({ offset: 25 })
             .setText(this.address);
           // still need to be fixed because it doesnt show address (which may need to be looped through)
-
-
           // add marker to map
           new mapboxgl.Marker(el)
             .setLngLat(this.point)
@@ -116,21 +143,6 @@ export class WifipointComponent implements OnInit {
   }
 
   // still need to be fixed ( want to show user's current places with marker and all the wifi hotspot markers when user lands the page)
-  getLocation() {
-    navigator.geolocation.getCurrentPosition(pos => {
-      // function
-      this.showMap(pos.coords.latitude, pos.coords.longitude);
-      const el = document.createElement('i'); // create element for the fontawesome icon in html
-      el.className = 'marker';
-      el.className = 'fas fa-map-marker-alt ada'; //  class name for the fontawesome icon
-      el.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
-
-      new mapboxgl.Marker(el)
-        .setLngLat([pos.coords.latitude, pos.coords.longitude])
-        .addTo(this.map);
-    });
-
-  }
 
   showMap(latitude: number, longitude: number) {
     this.map = new mapboxgl.Map({
@@ -139,6 +151,6 @@ export class WifipointComponent implements OnInit {
       center: [longitude, latitude],
       zoom: 15
     });
-  }
 
+  }
 }
