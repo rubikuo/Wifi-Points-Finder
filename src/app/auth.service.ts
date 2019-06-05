@@ -12,32 +12,32 @@ export class AuthService {
 
   constructor(private fireAuth: AngularFireAuth) {
     this.user = fireAuth.authState;
-   }
+  }
 
 
-signUp(email: string, password: string) {
-  this.fireAuth.auth.createUserWithEmailAndPassword(email, password)
-  .then(value => {
-    console.log(value);
+  signUp(email: string, password: string) {
+    this.fireAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then(value => {
+        console.log(value);
 
-    return value;
-  })
-  .catch(err => {
-    console.log(err);
+        return value;
+      })
+      .catch(err => {
+        console.log(err);
 
-    return err;
-  });
+        return err;
+      });
   }
   login(email: string, password: string) {
     this.fireAuth.auth.signInWithEmailAndPassword(email, password)
-    .then(value => {
+      .then(value => {
 
 
-    })
-    .catch(err => {
-      console.log(err);
+      })
+      .catch(err => {
+        console.log(err);
 
-    });
+      });
   }
 
   signOut() {

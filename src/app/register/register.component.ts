@@ -19,16 +19,16 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   register() {
-  this.fAuth.auth.createUserAndRetrieveDataWithEmailAndPassword(this.email, this.password)
-  // this create built-in method with two arguments : this.email & this.password
-  .then(value => {
-    // if this sucessful
-    console.log (value);
-    this.router.navigate(['/wifipoint']);
-  })
-  .catch( err => {
-    this.invalidForm = true; // invalidForm is hard code we write in register.component.html "line 13"
-  });
+    this.fAuth.auth.createUserAndRetrieveDataWithEmailAndPassword(this.email, this.password)
+      // this create built-in method with two arguments : this.email & this.password
+      .then(value => {
+        // if this sucessful
+        console.log(value);
+        this.router.navigate(['/wifipoint']);
+      })
+      .catch(err => {
+        this.invalidForm = true; // invalidForm is hard code we write in register.component.html "line 13"
+      });
 
   }
 

@@ -79,6 +79,7 @@ export class WifipointComponent implements OnInit {
           el.className = 'fas fa-map-marker-alt fa-2x'; //  class name for the fontawesome icon
           // el.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
           el.style.color = '#0725d3e0';
+          el.style.textShadow = '1px 1px 2px #ffff';
 
           // console.log(marker.fields.adress); // to get wifi hotspot address
           const popup = new mapboxgl.Popup({ offset: 25 })
@@ -122,6 +123,7 @@ export class WifipointComponent implements OnInit {
             el.className = 'fas fa-map-marker-alt fa-2x'; //  class name for the fontawesome icon
             // el.style.backgroundImage = 'url("https://image.flaticon.com/icons/svg/149/149060.svg")';
             el.style.color = '#4d1adae0';
+            el.style.textShadow = '1px 1px 2px #ffff';
 
 
             // console.log(marker.fields.adress); // to get wifi hotspot address

@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-// tslint:disable-next-line: max-line-length
-   user: Observable<firebase.User>; // Observable is a syncronize way to looking for a value, in this case is to look for the authenticated user
+  // tslint:disable-next-line: max-line-length
+  user: Observable<firebase.User>; // Observable is a syncronize way to looking for a value, in this case is to look for the authenticated user
   // this need to load before the page loads
   constructor(public fAuth: AngularFireAuth, public router: Router) {
     this.user = this.fAuth.authState; // to sense if the user is log in or not

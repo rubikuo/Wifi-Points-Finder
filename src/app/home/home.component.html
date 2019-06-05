@@ -1,8 +1,12 @@
 <div class="jumbotron bg-transparent">
-  <h1>Welcome to Wifi Hotspot Finder!</h1>
-  <p class="lead">This website is mainly to help you to find where are the Wifi hotspots near you in Helsingborg!</p>
+  <h1 class="text-dark text-capitalize font-weight-bold"> Welcome to Wifi Hotspot Finder!</h1>
+  <p class="lead"> Do you know Helsingborg is a "wifi-friendly" city?
+    <br> Actually there are 203 wifi hotspots available in town.
+    <br> Let's find out where they are with Wifi Hotspot Finder!
+  </p>
+
   <hr class="my-4">
-  <p>If you are here first time, please kindly sign up to access the service.</p>
+  <p> Please kindly sign up (only first time) and log in for access the service. </p>
   <div *ngIf="!(user | async)">
     <!-- if users do not exit show the following -->
     <a routerLink="/login" class="btn btn-info font-weight-bold mr-2">Log In</a>

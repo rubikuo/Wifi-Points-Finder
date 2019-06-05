@@ -1,15 +1,26 @@
 .col-6 {
-    display: inline;
+  display: inline;
+}
+
+.headshot {
+  box-shadow: 1px 0px 3px rgb(39, 38, 38);
 }
 
 .fa-github {
-    color: rgb(36, 4, 4);
+  color: rgb(36, 4, 4);
+  text-shadow: 1px 0px 1px rgb(5, 5, 5);
 }
 
 .fa-linkedin {
-    color: rgb(10, 63, 94);
+  color: #0077b5;
+  text-shadow: 1px 0px 1px rgb(5, 5, 5);
+}
+
+.fa-envelope {
+  color: rgb(240, 240, 243);
+  text-shadow: 1px 0px 1px rgb(5, 5, 5);
 }
 
 a {
-    text-align: center;
+  text-align: center;
 }
