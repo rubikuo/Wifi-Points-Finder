@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Team Name: Makeit 
 Team Member: Ju-I Kuo (Rubi), Adrienn Timko
 
-#Why we chose this problem and how we solve the problem?
+# Why we chose this problem and how we solve the problem?
 For people who come to Helsingborg only for short time and do not have local phone service, or for those who don't have un-limited 4G internet on the phone, it can be inconvenient to go around the city without wifi.
 
 As we know there are some places in town that provides free wifi, such as the train station or some coffee shops but not every place has public free wifi service. 
