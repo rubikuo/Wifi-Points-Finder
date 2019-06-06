@@ -18,7 +18,7 @@
     </div>
   </div>
   <div style="width: 43%; margin: auto; display: block;">
-    <button type="submit" class="btn btn-primary"
+    <button type="submit" class="btn btn-info"
       [disabled]="!email || !password || password.length < 6">Register</button>
     <!-- when there is no email, no password or the password is less than 6 character. then the button will be disabled-->
     <p class="center" *ngIf="invalidForm">this E-mail is not correct or password.</p>

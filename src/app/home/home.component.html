@@ -1,4 +1,4 @@
-<div class="jumbotron bg-transparent">
+<div class="jumbotron bg-transparent" style="width: 70%; margin: auto; display: block;">
   <h1 class="text-dark text-capitalize font-weight-bold"> Welcome to Wifi Hotspot Finder!</h1>
   <p class="lead"> Do you know Helsingborg is a "wifi-friendly" city?
     <br> Actually there are 203 wifi hotspots available in town.
@@ -9,7 +9,7 @@
   <p> Please kindly sign up (only first time) and log in for access the service. </p>
   <div *ngIf="!(user | async)">
     <!-- if users do not exit show the following -->
-    <a routerLink="/login" class="btn btn-info font-weight-bold mr-2">Log In</a>
-    <a routerLink="/register" class="btn btn-info font-weight-bold">Sign Up</a>
+      <a routerLink="/login" class="btn btn-info font-weight-bold mr-2">Log In</a>
+      <a routerLink="/register" class="btn btn-info font-weight-bold">Sign Up</a>
   </div>
 </div>
